@@ -5,9 +5,7 @@ use std::process;
 use minigrep::Config;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-
-    let config = Config::new(&args).unwrap_or_else(|err| {
+    let config = Config::new(env::args()).unwrap_or_else(|err| {
         // eprintln! prints to the standard error stream rather than the standard output
         // which is output.txt when running cargo run to poem.text > output.txt
         // rather than printing everything to the terminal.
